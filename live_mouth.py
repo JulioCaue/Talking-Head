@@ -5,11 +5,6 @@ import numpy as np
 import subprocess
 import os
 
-def clear_terminal():
-    pass
-
-
-
 def imitar_fala():
     #limite dos servos:
     # boca: 120, 40
@@ -112,5 +107,3 @@ def imitar_fala():
         stream.stop_stream()
         stream.close()
         pa.terminate()
-
-imitar_fala()
