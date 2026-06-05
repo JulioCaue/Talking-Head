@@ -30,7 +30,7 @@ def dublar_audio():
     angulo_anterior = float(boca_min_pos)
 
     # --- variaveis de audio ---
-    ARQUIVO_AUDIO = "audio_output.wav"
+    ARQUIVO_AUDIO = "audios/audio_output.wav"
     TAMANHO_CHUNK = 1024
 
     y, sr = librosa.load(ARQUIVO_AUDIO, sr=44100)
