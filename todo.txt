@@ -1,8 +1,0 @@
-- criar menu geral de opçoes para cabeça (via terminal!)
-    - poder escolher entre ia, idle, e escuta de microfone.
-
-- sistema de STT do meu microfone
-
-- sistema de TTS para a ia poder falar.
-
-- adicionar ia
