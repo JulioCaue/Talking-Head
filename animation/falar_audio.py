@@ -2,6 +2,7 @@ import librosa
 import numpy as np
 import time
 import serial
+from logs import log_writer
 
 #suprimir mensagens de erros do ALSA
 from ctypes import cdll, CFUNCTYPE, c_char_p, c_int
@@ -75,9 +76,9 @@ def dublar_audio():
                 frame_start += TAMANHO_CHUNK
 
         except KeyboardInterrupt:
-            print("\nEncerrado pelo usuário.")
+            log_writer.write("Encerrado pelo usuário.")
         except Exception as e:
-            print(f"\nUm erro ocorreu: {e}")
+            log_writer.write(f"{e}")
         finally:
             stream.stop_stream()
             stream.close()

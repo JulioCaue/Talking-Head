@@ -1,8 +1,7 @@
 from groq import Groq as grq
 import os
-import json
 from dotenv import load_dotenv
-import time
+from logs import log_writer
 #suprimir mensagens de erros do ALSA
 from ctypes import cdll, CFUNCTYPE, c_char_p, c_int
 _alsa_handler_ref = None
@@ -40,14 +39,16 @@ def criar_wav():
 
                 print(f"arquivo criado. Threshold foi: {recognizer.energy_threshold}\n\n\n")
             except Exception as e:
-                print(f"Um erro ocorreu: {e}\nThreshold foi: {recognizer.energy_threshold}\n\n\n")
+                log_writer.write(
+                    f"{e}\nThreshold foi: {recognizer.energy_threshold}"
+                    )
                 
 
     except sr.WaitTimeoutError:
-        pass
+        log_writer.write(f"{sr.WaitTimeoutError}")
 
     except sr.UnknownValueError:
-        pass
+        log_writer.write(f"{sr.UnknownValueError}")
 
 
 def receber_STT():
